@@ -3,7 +3,7 @@
 Terima kasih sudah mengklik 1 kali, untuk menampilkan iklan dan PLAY MOVIE, mudah rezeki dan sehat terus buat kamu. AMIIN
 ```
 ```
-&dl=1
+download
 ```
 ```
 blompp-user@outlook.com
@@ -21,7 +21,7 @@ user2@mailku.my.id
 user3@mailku.my.id
 ```
 ```
-UPFILES &dl=1
+UPFILES
 ```
 ```
 DOOD

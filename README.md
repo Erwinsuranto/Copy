@@ -19,6 +19,8 @@ user@mailku.my.id
 user1@mailku.my.id
 user2@mailku.my.id
 user3@mailku.my.id
+gavigang@mailku.my.id
+lktanzer@outlook.com
 ```
 ```
 https://lk21official.click/stream?film=

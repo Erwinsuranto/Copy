@@ -3,6 +3,77 @@
 
 
 
+
+
+
+
+# 
+```
+Tahap berikutnya adalah membangun Model Router.
+
+Jangan membuat request HTTP ke provider terlebih dahulu.
+
+Jangan membuat Chat Completions atau Responses API.
+
+Fokus hanya pada sistem routing model.
+
+Buat komponen Model Router yang bertugas memilih provider berdasarkan model yang diminta.
+
+Persyaratan:
+
+- Model Router menggunakan ProviderManager.
+- Tidak boleh ada hardcode provider di dalam router.
+- Semua konfigurasi model berasal dari file konfigurasi.
+- Mendukung banyak provider.
+- Mendukung satu model tersedia di lebih dari satu provider.
+- Menggunakan priority provider sebagai urutan pemilihan.
+- Jika provider disabled, jangan digunakan.
+- Jika model tidak ditemukan, kembalikan error yang jelas.
+
+Buat service berikut:
+
+- getProviderForModel(model)
+- hasModel(model)
+- listModels()
+- listProvidersForModel(model)
+
+Tambahkan validasi:
+
+- model kosong
+- model tidak dikenal
+- provider tidak aktif
+- konfigurasi model rusak
+
+Tambahkan unit helper agar mudah dipakai endpoint nanti.
+
+Belum perlu melakukan HTTP request.
+
+Belum perlu API Key Rotation.
+
+Belum perlu Retry.
+
+Belum perlu Streaming.
+
+Belum perlu Responses API.
+
+Belum perlu Chat Completions.
+
+Tambahkan logging sehingga saat aplikasi dijalankan akan tercetak:
+
+- jumlah provider
+- jumlah model
+- model yang dimiliki masing-masing provider
+
+Pastikan desain mengikuti clean architecture.
+
+Setelah selesai tampilkan struktur folder terbaru dan jelaskan alur kerja Model Router.
+
+
+
+
+
+```
+
 # 
 ```
 

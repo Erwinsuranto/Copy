@@ -5,6 +5,75 @@
 
 
 
+# 
+```
+
+
+Tahap berikutnya adalah membangun HTTP Client.
+
+Jangan membuat endpoint Chat Completions atau Responses API terlebih dahulu.
+
+Fokus hanya membuat lapisan komunikasi ke provider AI.
+
+Buat HttpClient yang reusable untuk semua provider.
+
+Persyaratan:
+
+- Gunakan axios.
+- Semua request menggunakan timeout dari konfigurasi provider.
+- Semua header dibangun secara otomatis.
+- Mendukung Authorization Bearer.
+- Mendukung custom header provider.
+- Mendukung POST dan GET.
+- Mendukung query parameter.
+- Mendukung request body JSON.
+- Mendukung streaming di tahap berikutnya (siapkan struktur, tetapi belum implementasi).
+
+Tambahkan:
+
+- Request Logger
+- Response Logger
+- Error Logger
+
+Normalisasi seluruh error menjadi format internal gateway.
+
+Misalnya:
+
+- Timeout
+- 401
+- 403
+- 404
+- 429
+- 500
+- 502
+- 503
+- Connection refused
+- DNS error
+- Invalid JSON
+
+Semua error harus menghasilkan objek error internal yang konsisten.
+
+HttpClient harus dapat dipanggil seperti:
+
+sendRequest(provider, endpoint, payload)
+
+Belum perlu melakukan retry.
+
+Belum perlu API Key Rotation.
+
+Belum perlu Streaming.
+
+Belum perlu Chat Completions.
+
+Belum perlu Responses API.
+
+Tambahkan unit test sederhana atau contoh penggunaan HttpClient.
+
+Pastikan desain mengikuti clean architecture sehingga seluruh provider nantinya menggunakan HttpClient yang sama.
+
+
+
+```
 
 
 # 

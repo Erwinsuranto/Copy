@@ -1,3 +1,73 @@
+
+
+
+
+
+# 
+```
+
+Tahap berikutnya adalah membangun Provider Manager.
+
+Jangan membuat endpoint AI terlebih dahulu.
+
+Fokus hanya pada sistem manajemen provider.
+
+Buat struktur berikut jika belum ada:
+
+config/
+providers/
+
+Tambahkan file konfigurasi yang mendukung banyak provider AI.
+
+Setiap provider harus memiliki konfigurasi seperti:
+
+- id
+- name
+- enabled
+- baseURL
+- apiKeys
+- supportedModels
+- priority
+- timeout
+
+Buat ProviderManager yang bertugas:
+
+- memuat konfigurasi provider saat aplikasi dijalankan
+- memvalidasi konfigurasi
+- mengambil provider berdasarkan model
+- hanya mengembalikan provider yang enabled
+- mendukung lebih dari satu provider
+- mudah ditambah provider baru tanpa mengubah source code
+
+Jangan hardcode provider di dalam kode.
+
+Semua provider harus dibaca dari file konfigurasi.
+
+Tambahkan service untuk:
+
+- listProviders()
+- getProviderByModel(model)
+- getEnabledProviders()
+
+Tambahkan logging jika konfigurasi provider tidak valid.
+
+Belum perlu membuat request HTTP ke provider.
+
+Belum perlu membuat Chat Completions.
+
+Belum perlu membuat Responses API.
+
+Belum perlu API Key Rotation.
+
+Belum perlu Streaming.
+
+Setelah selesai tampilkan struktur folder terbaru dan jelaskan desain arsitektur Provider Manager.
+
+
+
+
+```
+
 # 
 ```
 

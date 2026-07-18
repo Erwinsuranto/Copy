@@ -8,6 +8,136 @@
 
 
 
+
+# Prompt: Production Admin Dashboard
+```
+Implement a production-grade Admin Dashboard.
+
+Requirements
+
+Backend
+
+Create authenticated admin API.
+
+Frontend
+
+Responsive web UI.
+
+Dashboard
+
+Overview cards:
+
+- Requests
+- Tokens
+- Cost
+- Active Providers
+- Healthy Providers
+- Active API Keys
+- Rate Limit
+- Average Latency
+
+Provider Management
+
+Allow:
+
+- Enable/Disable provider
+- Priority
+- Weight
+- Timeout
+- Retry
+- Fallback
+- API Base URL
+- API Keys
+- Health status
+- Manual reload
+- Test provider
+
+API Key Management
+
+Allow:
+
+- Create
+- Delete
+- Enable/Disable
+- Expire
+- Restrict providers
+- Restrict models
+- Usage statistics
+
+Model Registry
+
+Display:
+
+- Provider
+- Model
+- Capabilities
+- Health
+- Status
+
+Monitoring
+
+Charts:
+
+- Requests
+- Tokens
+- Cost
+- Latency
+- Success rate
+- Retry
+- Fallback
+- Rate-limit events
+
+Logs
+
+Realtime request log.
+
+Filtering by:
+
+- Provider
+- API Key
+- Model
+- Status
+
+Health
+
+Display:
+
+- Circuit breaker
+- Health monitor
+- Consecutive failures
+- Last success
+- Last failure
+
+Configuration
+
+Support live edits.
+
+Use existing Hot Reload.
+
+No restart.
+
+Security
+
+Reuse authentication.
+
+Role:
+
+Admin only.
+
+Architecture
+
+Reuse existing services.
+
+No duplicated logic.
+
+Testing
+
+Add integration tests.
+
+Update README.
+
+Finish only after all tests pass.
+```
 # Prompt selanjutnya: Provider Configuration & Hot Reload
 ```
 Implement production-grade Provider Configuration & Hot Reload.

@@ -9,6 +9,83 @@
 
 
 
+
+# Tahap berikutnya: Integrasi Provider Nyata
+```
+
+
+Tahap berikutnya adalah implementasi Provider Adapter.
+
+Core gateway sudah selesai.
+
+Sekarang fokus membuat adapter provider nyata.
+
+Buat folder:
+
+src/providers/
+
+Setiap provider berada pada file terpisah.
+
+Minimal support:
+
+- OpenAI
+- OpenRouter
+- TokenFaucet
+- Anthropic
+- Google Gemini (OpenAI compatible jika tersedia)
+- DeepSeek
+- Databricks
+- NVIDIA
+
+Buat interface provider yang sama untuk seluruh adapter.
+
+Setiap provider bertugas:
+
+- membangun endpoint
+- mapping payload jika diperlukan
+- mapping response jika diperlukan
+- mendeteksi capability provider
+- tidak mengandung retry
+- tidak mengandung fallback
+- tidak mengandung API key rotation
+
+Retry, fallback, logging dan HttpClient tetap berasal dari core gateway.
+
+Tambahkan capability seperti:
+
+supportsChat
+
+supportsResponses
+
+supportsStreaming
+
+supportsEmbeddings
+
+supportsImages
+
+supportsAudio
+
+supportsTools
+
+supportsReasoning
+
+ProviderManager harus otomatis memilih adapter berdasarkan konfigurasi.
+
+Jika provider OpenAI compatible, gunakan GenericOpenAIAdapter.
+
+Provider yang membutuhkan mapping khusus menggunakan adapter sendiri.
+
+Tambahkan integration test menggunakan mock provider.
+
+Tambahkan contoh konfigurasi minimal untuk setiap provider.
+
+Pastikan tidak ada duplikasi kode antar adapter.
+
+Pertahankan clean architecture.
+
+
+
+```
 # Streaming (Server-Sent Events / SSE)
 ```
 

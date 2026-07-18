@@ -12,6 +12,97 @@
 ```
 
 
+Tahap berikutnya adalah implementasi OpenAI Responses API.
+
+Tujuan:
+
+Menambahkan endpoint:
+
+POST /v1/responses
+
+dengan tetap menggunakan arsitektur yang sudah ada.
+
+Persyaratan:
+
+- Jangan menduplikasi kode Chat Completions.
+- Reuse seluruh komponen yang sudah ada:
+  - ProviderManager
+  - ModelRouter
+  - HttpClient
+  - ApiKeyManager
+  - Retry
+  - Fallback
+  - Logger
+
+Responses API harus menjadi adapter di atas service yang sudah ada.
+
+Validasi request:
+
+- model wajib ada
+- input wajib ada
+- support string maupun array input
+- metadata optional
+- instructions optional
+- temperature optional
+- max_output_tokens optional
+
+Flow:
+
+1. Validasi request.
+2. Cari provider menggunakan ModelRouter.
+3. Ambil API Key dari ApiKeyManager.
+4. Kirim request menggunakan HttpClient.
+5. Gunakan Retry jika retryable.
+6. Gunakan Provider Fallback jika provider gagal.
+7. Normalisasi response menjadi format OpenAI Responses API.
+
+Error harus konsisten dengan Chat Completions.
+
+Tambahkan logging:
+
+- request id
+- provider
+- model
+- latency
+- retry count
+- fallback count
+
+Tambahkan integration test.
+
+Tambahkan contoh curl.
+
+Pastikan seluruh endpoint berikut berbagi service yang sama:
+
+GET /v1/models
+
+POST /v1/chat/completions
+
+POST /v1/responses
+
+Jangan membuat endpoint lain.
+
+Jangan membuat Dashboard.
+
+Jangan membuat Database.
+
+Jangan membuat Authentication.
+
+Jangan membuat Embeddings.
+
+Jangan membuat Images.
+
+Jangan membuat Audio.
+
+Pastikan clean architecture tetap dipertahankan dan tidak ada duplikasi kode.
+
+
+
+```
+
+# 
+```
+
+
 Tahap berikutnya adalah membangun API Key Manager.
 
 Jangan membuat Dashboard.

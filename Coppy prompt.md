@@ -7,6 +7,105 @@
 
 
 
+
+# Prompt selanjutnya: Provider Configuration & Hot Reload
+```
+Implement production-grade Provider Configuration & Hot Reload.
+
+Requirements
+
+Create a centralized ProviderConfigManager.
+
+Goals
+
+Allow providers to be managed without restarting the gateway.
+
+Support:
+
+- enable/disable provider
+- priority
+- weight
+- timeout
+- retry policy
+- fallback policy
+- API base URL
+- API keys
+- model mapping
+- provider metadata
+
+Configuration Sources
+
+Support:
+
+- .env
+- config/providers/*.json
+
+Hot Reload
+
+Watch configuration files.
+
+Reload provider configuration automatically.
+
+No process restart.
+
+ProviderManager
+
+ProviderManager must react to configuration changes automatically.
+
+Existing requests continue normally.
+
+New requests use the updated configuration.
+
+Validation
+
+Validate:
+
+- duplicated provider ids
+- duplicated priorities
+- invalid URLs
+- invalid model mapping
+- missing API keys
+- unsupported capabilities
+
+Rollback
+
+If a configuration reload fails:
+
+- keep previous configuration
+- log validation errors
+- continue serving requests
+
+Metrics
+
+Expose:
+
+- config reload count
+- reload failures
+- active providers
+- disabled providers
+
+Testing
+
+Add integration tests for:
+
+- enable/disable
+- hot reload
+- rollback
+- validation
+- priority changes
+- provider removal
+- provider addition
+
+Documentation
+
+Update README.
+
+Maintain clean architecture.
+
+No duplicated logic.
+
+Finish only after every test passes.
+```
 # Prompt berikutnya: Rate Limiting & Quotas
 ```
 Implement production-grade Rate Limiting & Quota Management.

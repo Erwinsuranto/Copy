@@ -7,6 +7,96 @@
 
 
 
+# Prompt berikutnya: Rate Limiting & Quotas
+```
+Implement production-grade Rate Limiting & Quota Management.
+
+Requirements
+
+Create centralized RateLimiter.
+
+Reuse existing architecture.
+
+Do not duplicate logic.
+
+Support:
+
+- Global rate limit
+- Per API Key rate limit
+- Per Provider rate limit
+- Per Model rate limit
+- Concurrent request limit
+- Burst limit
+- Daily request quota
+- Daily token quota
+- Monthly token quota
+
+Window Types
+
+Support:
+
+- Fixed Window
+- Sliding Window
+- Token Bucket
+
+Configuration
+
+Allow configuration from:
+
+- .env
+- config/rateLimit.json
+
+Headers
+
+Return OpenAI-compatible headers:
+
+X-RateLimit-Limit
+X-RateLimit-Remaining
+X-RateLimit-Reset
+
+Retry-After
+
+Return HTTP 429 with OpenAI-compatible error envelope.
+
+Integration
+
+Reuse existing:
+
+- Authentication
+- Metrics
+- RequestExecutor
+- ApiKeyManager
+
+Metrics
+
+Expose:
+
+- rejected requests
+- quota usage
+- burst usage
+- provider throttling
+
+Testing
+
+Add integration tests for:
+
+- burst limit
+- concurrency limit
+- per-key limit
+- per-provider limit
+- quota exhaustion
+- retry-after
+- metrics integration
+- OpenAI compatibility
+
+Documentation
+
+Update README.
+
+Maintain clean architecture.
+
+Finish only after all tests pass.
+```
 
 
 # Prompt selanjutnya: Metrics & Monitoring

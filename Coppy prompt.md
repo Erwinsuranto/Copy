@@ -8,6 +8,95 @@
 
 
 
+
+
+
+# Prompt selanjutnya: Models API & Provider Discovery
+```
+Implement a production-ready OpenAI-compatible Models API.
+
+Requirements
+
+Implement:
+
+GET /v1/models
+GET /v1/models/:id
+
+Architecture
+
+Reuse:
+
+- ProviderManager
+- ProviderAdapter
+- RequestExecutor
+- Logger
+
+Do not duplicate logic.
+
+Provider Discovery
+
+Each ProviderAdapter must expose:
+
+- listModels()
+- supportsModel()
+- capabilities
+
+The ProviderManager aggregates all providers into one unified model registry.
+
+Deduplicate identical model IDs.
+
+Return provider metadata internally while exposing OpenAI-compatible output externally.
+
+Capabilities
+
+Track capabilities for every model:
+
+- chat
+- responses
+- embeddings
+- images
+- audio
+- tools
+- streaming
+- reasoning
+
+OpenAI Compatibility
+
+Return the standard OpenAI models response.
+
+Support retrieving a single model.
+
+Caching
+
+Cache model lists with configurable TTL.
+
+Allow manual refresh.
+
+Fallback
+
+If one provider fails, continue collecting models from remaining providers.
+
+Testing
+
+Add tests for:
+
+- aggregation
+- deduplication
+- provider failure
+- cache
+- refresh
+- OpenAI compatibility
+
+Documentation
+
+Update README.
+
+Maintain clean architecture.
+
+No duplicated code.
+
+Finish only after all tests pass.
+```
 # Prompt: Tool Calling / Function Calling
 ```
 Implement full OpenAI-compatible Tool Calling / Function Calling.

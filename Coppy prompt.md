@@ -9,6 +9,122 @@
 
 
 
+# 
+```
+Implement full OpenAI-compatible Embeddings API.
+
+Requirements:
+
+1. Add endpoint:
+
+POST /v1/embeddings
+
+Compatible with OpenAI request/response format.
+
+2. Request
+
+Support:
+
+- input (string)
+- input (array)
+- model
+- encoding_format
+- dimensions (if provider supports)
+
+Validate request.
+
+3. Provider Integration
+
+Use existing architecture:
+
+ProviderManager
+ModelRouter
+RequestExecutor
+ProviderAdapter
+
+Do not duplicate provider logic.
+
+ProviderAdapter must expose embeddings capability.
+
+If provider does not support embeddings, return a proper OpenAI-compatible error.
+
+4. Provider Mapping
+
+OpenAI-compatible providers:
+
+- OpenAI
+- OpenRouter
+- TokenFaucet
+- DeepSeek
+- NVIDIA
+- Gemini (OpenAI compatible)
+- Databricks
+
+Anthropic should return "Embeddings not supported".
+
+5. Response
+
+Return OpenAI-compatible JSON:
+
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "embedding",
+      "embedding": [...],
+      "index": 0
+    }
+  ],
+  "model": "...",
+  "usage": {
+    "prompt_tokens": ...,
+    "total_tokens": ...
+  }
+}
+
+6. Streaming
+
+Embeddings must never use streaming.
+
+7. Retry
+
+Reuse existing retry/fallback system.
+
+8. Logging
+
+Reuse existing logging.
+
+9. Tests
+
+Add integration tests for:
+
+- successful embedding
+- multiple inputs
+- unsupported provider
+- validation errors
+- provider fallback
+- OpenAI compatibility
+
+10. Documentation
+
+Update README with:
+
+- endpoint
+- request examples
+- response examples
+- provider support table
+
+Do not modify existing architecture.
+
+Keep clean architecture.
+
+Reuse existing abstractions.
+
+Do not duplicate code.
+
+Finish only after all tests pass.
+```
+
 
 # Tahap berikutnya: Integrasi Provider Nyata
 ```

@@ -10,6 +10,83 @@
 
 
 
+# Prompt berikutnya: Authentication & API Keys
+```
+Implement production-grade authentication and authorization.
+
+Requirements
+
+Implement middleware-based authentication.
+
+Support:
+
+- Bearer API Keys
+- Multiple API Keys
+- Key metadata
+- Key status (active/inactive)
+- Optional expiration
+- Optional provider restriction
+- Optional model restriction
+- Request usage tracking
+
+Configuration
+
+Support API keys from:
+
+- .env
+- config/apiKeys.json
+
+Authentication middleware
+
+Protect every API endpoint except:
+
+- /
+- /health
+- /ready
+
+Error responses must be OpenAI-compatible.
+
+Usage
+
+Track per-key:
+
+- total requests
+- total tokens
+- provider usage
+- model usage
+- last used
+- created time
+
+Key rotation
+
+Allow multiple active keys simultaneously.
+
+Architecture
+
+Reuse existing architecture.
+
+Do not duplicate logic.
+
+Testing
+
+Add tests for:
+
+- valid key
+- invalid key
+- disabled key
+- expired key
+- missing key
+- provider restriction
+- model restriction
+
+Documentation
+
+Update README.
+
+Maintain clean architecture.
+
+Finish only after all tests pass.
+```
 
 # Prompt selanjutnya: Models API & Provider Discovery
 ```

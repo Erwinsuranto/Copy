@@ -8,6 +8,123 @@
 
 
 
+# Prompt: Images API
+```
+Implement full OpenAI-compatible Images API.
+
+Requirements:
+
+1. Add endpoints:
+
+POST /v1/images/generations
+POST /v1/images/edits
+POST /v1/images/variations
+
+Maintain full OpenAI API compatibility.
+
+2. Support request fields:
+
+- model
+- prompt
+- image
+- mask
+- n
+- size
+- quality
+- style
+- response_format
+- user
+
+Validate all requests.
+
+3. Integrate into existing architecture only.
+
+Reuse:
+
+- ProviderManager
+- ModelRouter
+- RequestExecutor
+- ProviderAdapter
+- HttpClient
+- Retry
+- Fallback
+- Logging
+- ApiKeyManager
+
+Do not duplicate logic.
+
+4. Provider capability
+
+Add supportsImages to ProviderAdapter.
+
+Automatically filter unsupported providers.
+
+Return OpenAI-compatible error if unsupported.
+
+5. Provider support
+
+OpenAI-compatible:
+
+- OpenAI
+- OpenRouter
+- TokenFaucet (if available)
+- Gemini/OpenAI-compatible
+- NVIDIA
+- Databricks
+
+Providers without image capability must be skipped automatically.
+
+6. Response
+
+Support both:
+
+- url
+- b64_json
+
+Normalize all provider responses into OpenAI format.
+
+7. Streaming
+
+Images never use streaming.
+
+Reject stream=true.
+
+8. Retry/Fallback
+
+Reuse existing retry/fallback.
+
+9. Tests
+
+Add integration tests for:
+
+- image generation
+- edits
+- variations
+- unsupported provider
+- fallback
+- validation
+- response normalization
+- OpenAI compatibility
+
+10. Documentation
+
+Update README with:
+
+- supported endpoints
+- examples
+- provider support
+- limitations
+
+Keep clean architecture.
+
+No duplicated code.
+
+No provider-specific logic outside ProviderAdapter.
+
+Finish only when all tests pass.
+```
+
+
 
 # 
 ```

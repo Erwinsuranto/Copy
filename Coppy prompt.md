@@ -7,6 +7,127 @@
 
 
 
+
+# Prompt: Tool Calling / Function Calling
+```
+Implement full OpenAI-compatible Tool Calling / Function Calling.
+
+Requirements
+
+Implement complete support for:
+
+- tools
+- tool_choice
+- parallel_tool_calls
+- tool_calls
+- function calling
+
+Maintain compatibility with OpenAI Chat Completions API.
+
+Architecture
+
+Reuse existing architecture only.
+
+Use:
+
+- ProviderManager
+- ProviderAdapter
+- RequestExecutor
+- HttpClient
+- Retry
+- Fallback
+- ApiKeyManager
+- Logger
+
+Do not duplicate logic.
+
+Provider Capability
+
+Add:
+
+supportsTools
+
+Automatically filter providers that do not support tool calling.
+
+Return OpenAI-compatible behaviour.
+
+Provider Mapping
+
+Support providers that expose native tool/function calling.
+
+Map provider-specific formats into a single internal representation.
+
+Adapters are responsible only for request/response translation.
+
+Streaming
+
+Support tool calls during SSE streaming.
+
+Support incremental tool_call deltas exactly like OpenAI.
+
+Normalization
+
+Normalize every provider into OpenAI Chat Completion format.
+
+Support:
+
+- assistant tool_calls
+- function.name
+- function.arguments
+- tool_call_id
+- finish_reason = tool_calls
+
+Parallel Tool Calls
+
+Support multiple tool calls in one assistant response.
+
+Validation
+
+Validate:
+
+- tools schema
+- tool_choice
+- function definitions
+- JSON schema
+
+Return OpenAI-compatible validation errors.
+
+Retry/Fallback
+
+Reuse current RequestExecutor retry and fallback.
+
+Documentation
+
+Update README:
+
+- tools examples
+- function examples
+- streaming examples
+- provider compatibility
+- limitations
+
+Testing
+
+Add integration tests for:
+
+- single tool call
+- multiple tool calls
+- streaming tool calls
+- validation errors
+- unsupported providers
+- fallback
+- retry
+- OpenAI compatibility
+- finish_reason=tool_calls
+
+Maintain clean architecture.
+
+No duplicated code.
+
+No provider-specific logic outside ProviderAdapter.
+
+Finish only after all tests pass.
+```
 # Prompt: Audio API
 ```
 Implement full OpenAI-compatible Audio API.

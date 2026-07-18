@@ -7,6 +7,133 @@
 
 
 
+# Prompt: Audio API
+```
+Implement full OpenAI-compatible Audio API.
+
+Requirements
+
+Implement all OpenAI Audio endpoints:
+
+POST /v1/audio/speech
+POST /v1/audio/transcriptions
+POST /v1/audio/translations
+
+Architecture
+
+Reuse existing architecture only.
+
+Use:
+
+- ProviderManager
+- ProviderAdapter
+- RequestExecutor
+- HttpClient
+- Retry
+- Fallback
+- ApiKeyManager
+- Logger
+
+No duplicated code.
+
+Provider Capability
+
+Add:
+
+supportsAudio
+
+Automatically filter unsupported providers.
+
+Return OpenAI-compatible error if unsupported.
+
+Speech API
+
+Support:
+
+- model
+- input
+- voice
+- response_format
+- speed
+
+Support binary audio responses.
+
+Normalize provider responses.
+
+Transcriptions
+
+Support multipart upload.
+
+Support:
+
+- file
+- model
+- language
+- prompt
+- response_format
+- temperature
+
+Translations
+
+Support multipart upload.
+
+Translate into English following OpenAI behavior.
+
+Multipart
+
+Reuse existing multipart utilities from Images API where possible.
+
+Streaming
+
+Reject stream=true for unsupported operations.
+
+Retry/Fallback
+
+Reuse current retry and fallback pipeline.
+
+Response Normalization
+
+Normalize all providers into OpenAI format.
+
+Provider Support
+
+Support providers that expose audio APIs.
+
+Unsupported providers must be skipped automatically.
+
+Testing
+
+Add integration tests for:
+
+- speech
+- transcription
+- translation
+- multipart upload
+- validation
+- fallback
+- retry
+- normalization
+- unsupported providers
+- OpenAI compatibility
+
+Documentation
+
+Update README:
+
+- endpoints
+- request examples
+- response examples
+- provider matrix
+- limitations
+
+Maintain clean architecture.
+
+No duplicated code.
+
+Finish only after every test passes.
+```
+
+
 
 # Prompt: Images API
 ```

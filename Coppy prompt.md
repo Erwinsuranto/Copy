@@ -8,6 +8,90 @@
 
 
 
+
+# Streaming (Server-Sent Events / SSE)
+```
+
+Tahap berikutnya adalah implementasi Streaming (Server-Sent Events / SSE).
+
+Tujuan:
+
+Menambahkan dukungan streaming OpenAI Compatible untuk:
+
+- POST /v1/chat/completions
+- POST /v1/responses
+
+Jika request memiliki:
+
+"stream": true
+
+Gateway harus mengembalikan response streaming menggunakan format OpenAI Compatible SSE.
+
+Persyaratan:
+
+- Jangan membuat endpoint baru.
+- Reuse seluruh service yang sudah ada.
+- Gunakan RequestExecutor yang sama.
+- Gunakan HttpClient yang sama.
+- Gunakan Retry dan Fallback yang sudah ada.
+
+Flow:
+
+1. Validasi request.
+2. Cari provider.
+3. Ambil API key.
+4. Jika stream=false gunakan flow lama.
+5. Jika stream=true gunakan HttpClient stream mode.
+6. Forward seluruh SSE event ke client.
+7. Jika provider mengirim [DONE], teruskan ke client lalu tutup koneksi.
+
+Tambahkan:
+
+- StreamingResponseAdapter
+- StreamParser
+- SSEWriter
+
+Logging:
+
+- request id
+- provider
+- model
+- stream started
+- stream ended
+- latency
+- bytes sent
+
+Error:
+
+Jika error terjadi sebelum stream dimulai:
+kembalikan JSON OpenAI error.
+
+Jika error terjadi saat stream berlangsung:
+kirim event error sesuai format OpenAI lalu tutup stream.
+
+Belum membuat:
+
+- Dashboard
+- Database
+- Metrics
+- Authentication
+- Embeddings
+- Images
+- Audio
+
+Tambahkan integration test menggunakan mock SSE provider.
+
+Tambahkan contoh curl:
+
+curl ... -d '{"stream":true}'
+
+Pastikan implementasi tetap mengikuti clean architecture dan tidak menduplikasi kode non-streaming.
+
+
+
+
+```
+
 # 
 ```
 

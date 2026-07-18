@@ -9,6 +9,123 @@
 
 
 
+
+# 
+```
+Backend AI Gateway sudah selesai dan berjalan normal. Endpoint /health dan server sudah berfungsi, tetapi Admin Dashboard masih belum selesai. Fokus hanya menyelesaikan Admin Dashboard, jangan mengubah arsitektur gateway, provider manager, request executor, retry, fallback, routing, auth, metrics, rate limiting, ataupun fitur backend yang sudah selesai.
+
+Target utama adalah membuat /admin menjadi dashboard produksi yang sepenuhnya interaktif.
+
+Selesaikan seluruh frontend dan backend yang diperlukan agar semua menu benar-benar bekerja.
+
+Persyaratan:
+
+1. Semua menu dapat diklik:
+- Overview
+- Providers
+- API Keys
+- Models
+- Logs
+- Health
+- Config
+
+Gunakan SPA (single page), tanpa reload halaman.
+
+2. Overview
+- Total request
+- Success
+- Error
+- Active provider
+- Active API Keys
+- Uptime
+- Version
+- Average latency
+- Request per second
+- Grafik realtime yang otomatis refresh.
+
+3. Providers
+- Menampilkan seluruh provider.
+- Enable/Disable provider.
+- Priority.
+- Adapter.
+- Endpoint.
+- Health.
+- Test connection.
+- Reload provider.
+- Simpan perubahan tanpa restart server.
+
+4. API Keys
+- CRUD lengkap.
+- Enable/Disable.
+- Restriksi provider.
+- Restriksi model.
+- Expired date.
+- Role.
+- Usage.
+- Search.
+- Tanpa reload halaman.
+
+5. Models
+- Ambil data langsung dari registry gateway.
+- Refresh model.
+- Provider.
+- Capability.
+- Context.
+- owned_by.
+- Endpoint support.
+
+6. Logs
+- Live log viewer.
+- Auto refresh.
+- Pause.
+- Search.
+- Filter.
+- Copy.
+- Clear.
+
+7. Health
+- Provider health.
+- Circuit breaker.
+- Retry status.
+- Latency.
+- Memory.
+- Request count.
+- Uptime.
+- Update realtime.
+
+8. Config
+- Edit konfigurasi provider.
+- Validasi sebelum save.
+- Reload tanpa restart.
+- Rollback jika konfigurasi tidak valid.
+
+9. Frontend
+Pastikan:
+- Tidak ada JavaScript error.
+- Tidak ada CSS atau overlay yang membuat menu tidak bisa diklik.
+- Semua tombol berfungsi.
+- Semua fetch menuju endpoint admin yang benar.
+- Loading indicator.
+- Toast notification.
+- Error handling.
+- Responsive desktop dan mobile.
+
+10. Backend
+Jika endpoint admin masih belum ada, implementasikan endpoint yang diperlukan tanpa mengubah arsitektur gateway yang sudah selesai.
+
+11. Testing
+Verifikasi:
+- Semua tab dapat diklik.
+- Semua tombol bekerja.
+- Tidak ada error di browser console.
+- Tidak ada request 404.
+- Tidak ada JavaScript exception.
+- Tidak ada endpoint admin yang gagal.
+- Dashboard menampilkan data nyata dari gateway, bukan data dummy.
+
+Setelah selesai, jalankan seluruh test yang ada, perbaiki semua kegagalan hingga seluruh test lulus, kemudian tampilkan ringkasan fitur yang berhasil diselesaikan beserta daftar endpoint admin yang digunakan.
+```
+
 # Prompt: Production Admin Dashboard
 ```
 Implement a production-grade Admin Dashboard.

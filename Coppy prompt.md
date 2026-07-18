@@ -5,6 +5,76 @@
 
 
 
+
+# 
+```
+
+
+Tahap berikutnya adalah implementasi endpoint OpenAI Compatible Chat Completions.
+
+Fokus hanya pada endpoint:
+
+POST /v1/chat/completions
+
+Tujuan:
+
+Menerima request OpenAI Compatible, memilih provider menggunakan Model Router, lalu mengirim request menggunakan HttpClient.
+
+Persyaratan:
+
+- Gunakan ProviderManager.
+- Gunakan ModelRouter.
+- Gunakan HttpClient.
+- Jangan hardcode provider.
+- Jangan hardcode model.
+- Semua provider berasal dari konfigurasi.
+
+Validasi request:
+
+- model wajib ada
+- messages wajib ada
+- messages harus berupa array
+- minimal satu message
+
+Flow:
+
+1. Validasi request.
+2. Cari provider berdasarkan model.
+3. Bangun payload OpenAI Compatible.
+4. Kirim request menggunakan HttpClient.
+5. Kembalikan response provider dalam format OpenAI Compatible.
+
+Belum implementasi:
+
+- Streaming
+- Retry
+- API Key Rotation
+- Fallback Provider
+- Responses API
+- Embeddings
+- Images
+- Audio
+
+Tambahkan logging:
+
+- model
+- provider
+- durasi request
+- status code
+- request id
+
+Normalisasi seluruh error menjadi format OpenAI Compatible.
+
+Tambahkan integration test menggunakan mock provider.
+
+Tambahkan contoh request curl.
+
+Pastikan endpoint dapat bekerja tanpa mengubah arsitektur yang sudah ada.
+
+
+
+```
+
 # 
 ```
 

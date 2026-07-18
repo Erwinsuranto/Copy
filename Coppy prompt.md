@@ -9,7 +9,91 @@
 
 
 
+# Prompt selanjutnya: Metrics & Monitoring
+```
+Implement production-grade Metrics & Monitoring.
 
+Requirements
+
+Create internal metrics subsystem.
+
+Expose endpoints:
+
+GET /metrics
+GET /stats
+GET /health/providers
+
+Metrics
+
+Track globally and per provider:
+
+- total requests
+- successful requests
+- failed requests
+- retry count
+- fallback count
+- average latency
+- p50 latency
+- p95 latency
+- p99 latency
+- total prompt tokens
+- total completion tokens
+- total cost (if provider exposes usage)
+- active API keys
+- active providers
+
+Provider Health
+
+Track for every provider:
+
+- online/offline
+- last success
+- last failure
+- average latency
+- success rate
+- consecutive failures
+- circuit state (closed/open/half-open)
+
+Health Checks
+
+Support automatic periodic health checks.
+
+Providers that recover should automatically become available again.
+
+Caching
+
+Cache metrics snapshots efficiently.
+
+Avoid blocking request execution.
+
+Architecture
+
+Reuse RequestExecutor hooks.
+
+Do not duplicate logic.
+
+Metrics collection must be centralized.
+
+Testing
+
+Add tests for:
+
+- metrics updates
+- provider health
+- retries
+- fallback
+- latency calculation
+- health recovery
+- endpoint responses
+
+Documentation
+
+Update README.
+
+Maintain clean architecture.
+
+Finish only after all tests pass.
+```
 # Prompt berikutnya: Authentication & API Keys
 ```
 Implement production-grade authentication and authorization.

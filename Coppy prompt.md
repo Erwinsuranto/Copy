@@ -12,6 +12,303 @@
 
 
 
+
+
+# 
+```
+Sprint 10 – Intelligent Model Registry & Routing Engine
+
+Preserve the existing architecture and all completed features.
+
+Do NOT break compatibility with the OpenAI API.
+
+The objective of this sprint is to build an intelligent Model Registry and Routing Engine.
+
+Requirements
+
+1. Global Model Registry
+
+Create a central Model Registry.
+
+Each model record should contain:
+
+- model id
+- aliases
+- provider
+- provider id
+- endpoint
+- capabilities
+- context length
+- supports streaming
+- supports tools
+- supports vision
+- supports reasoning
+- supports embeddings
+- supports images
+- supports audio
+- health
+- latency
+- success rate
+- priority
+
+2. Automatic Provider Discovery
+
+When a provider is added:
+
+Automatically query:
+
+GET /v1/models
+
+and populate the registry.
+
+Support manual refresh.
+
+Support scheduled refresh.
+
+No server restart required.
+
+3. Model Alias System
+
+Support aliases.
+
+Example:
+
+Alias:
+gpt-5
+
+Available Providers:
+
+OpenAI
+OpenRouter
+Azure
+Provider X
+
+Alias:
+
+claude-sonnet
+
+Available Providers:
+
+Anthropic
+OpenRouter
+
+Alias:
+
+kimi-k3
+
+Available Providers:
+
+Moonshot
+Provider X
+
+The client always sends the alias.
+
+Gateway resolves the best provider automatically.
+
+4. Capability Detection
+
+Automatically detect provider capabilities.
+
+Examples:
+
+Streaming
+
+Tool Calling
+
+Vision
+
+Reasoning
+
+Embeddings
+
+Responses API
+
+Images API
+
+Audio API
+
+Store capabilities inside the registry.
+
+5. Intelligent Routing Rules
+
+Support routing rules such as:
+
+IF model == gpt-5
+
+THEN
+
+Priority:
+
+OpenAI
+
+↓
+
+OpenRouter
+
+↓
+
+Provider X
+
+Another example:
+
+IF model == kimi-k3
+
+Priority:
+
+Moonshot
+
+↓
+
+Provider X
+
+↓
+
+Provider Y
+
+Every model can have its own provider order.
+
+6. Routing Conditions
+
+Allow routing by:
+
+priority
+
+latency
+
+provider health
+
+API key health
+
+least used
+
+weighted
+
+round robin
+
+random
+
+success rate
+
+response time
+
+7. Rule Engine
+
+Create a routing rule engine.
+
+Support:
+
+IF
+
+ELSE
+
+AND
+
+OR
+
+NOT
+
+Example:
+
+IF provider latency > 3000 ms
+
+Switch provider.
+
+Example:
+
+IF API key cooldown active
+
+Skip key.
+
+Example:
+
+IF provider unhealthy
+
+Skip provider.
+
+8. Admin Dashboard
+
+Add pages:
+
+Model Registry
+
+Aliases
+
+Routing Rules
+
+Capabilities
+
+Discovery Status
+
+Provider Priority per Model
+
+Refresh Models
+
+Refresh Capabilities
+
+9. Persistence
+
+Persist:
+
+Providers
+
+Models
+
+Aliases
+
+Capabilities
+
+Routing Rules
+
+API Keys
+
+Health History
+
+10. APIs
+
+Implement admin APIs:
+
+GET /admin/models
+
+GET /admin/aliases
+
+GET /admin/routing
+
+POST /admin/discover
+
+POST /admin/refresh-models
+
+POST /admin/refresh-capabilities
+
+PUT /admin/routing
+
+11. Tests
+
+Add comprehensive unit and integration tests covering:
+
+Provider discovery
+
+Model registry
+
+Alias resolution
+
+Routing rules
+
+Capability detection
+
+Persistence
+
+Dashboard
+
+Backward compatibility
+
+12. Final Goal
+
+The gateway must become a self-learning OpenAI-compatible gateway where providers can be added dynamically, models are discovered automatically, routing adapts based on health and performance, and clients continue using standard OpenAI-compatible requests without changing their configuration.
+```
+
+
+
+
 # 
 ```
 Sprint 9 – Multi Provider Gateway Architecture

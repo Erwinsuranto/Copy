@@ -14,6 +14,92 @@
 
 # 
 ```
+Act as a senior Staff Software Engineer and AI Gateway architect.
+
+First, DO NOT implement any new feature.
+
+Your first task is to perform a complete audit of this repository.
+
+Analyze the entire project including:
+
+- folder structure
+- architecture
+- code quality
+- scalability
+- maintainability
+- security
+- performance
+- API compatibility
+- OpenAI compatibility
+- provider architecture
+- routing architecture
+- admin dashboard
+- frontend
+- backend
+- testing
+- CI/CD
+- documentation
+
+Specifically verify:
+
+1. Which features are fully implemented.
+2. Which features are partially implemented.
+3. Which features are only UI placeholders.
+4. Which files are dead code.
+5. Which files are duplicated.
+6. Which modules violate clean architecture.
+7. Potential race conditions.
+8. Memory leaks.
+9. Blocking I/O.
+10. Error handling.
+11. Retry logic.
+12. Streaming implementation.
+13. Provider abstraction.
+14. Model registry.
+15. API key management.
+16. Metrics.
+17. Health monitoring.
+18. Admin Dashboard functionality.
+19. Security issues.
+20. Performance bottlenecks.
+
+Then produce a report with this exact structure:
+
+## Overall Score (/100)
+
+## Architecture
+
+## Completed Features
+
+## Partially Completed Features
+
+## Missing Features
+
+## Bugs
+
+## Technical Debt
+
+## Security Issues
+
+## Performance Issues
+
+## Code Smells
+
+## Suggested Refactoring
+
+## Highest Priority Fixes
+
+## Recommended Development Roadmap
+
+Do not modify any code yet.
+
+Only analyze the repository and produce a detailed audit report.
+```
+
+
+
+# 
+```
 Continue with the ROADMAP from the first unchecked task.
 
 Rules:

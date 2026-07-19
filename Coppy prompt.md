@@ -10,6 +10,30 @@
 
 
 
+
+
+# 
+```
+Continue with the ROADMAP from the first unchecked task.
+
+Rules:
+- Do NOT ask for approval after every task.
+- Continue automatically until the current Phase is 100% complete.
+- Stop only when the entire current Phase is finished or if you encounter a real blocking issue that cannot be resolved safely.
+- Follow SPEC.md exactly.
+- Reuse existing components, hooks, stores, utilities, design tokens, and services. Do not duplicate code.
+- Maintain the current architecture and coding standards.
+- Do not introduce breaking changes.
+- Keep TypeScript strict with zero lint errors.
+- Update ROADMAP.md immediately after each completed task.
+- Update CHANGELOG.md after each completed task.
+- Create a separate commit for every completed task and push to the repository.
+- Verify that the implementation matches the ROADMAP before moving to the next task.
+- At the end of the phase, provide a concise summary of all completed tasks, modified files, commits, and the next phase to be implemented.
+- Do not restart previous phases or re-audit the project unless inconsistencies are found.
+- If a minor inconsistency is found, fix it immediately and continue without stopping.
+- Continue until the current phase is fully completed.
+``
 # 
 ```
 Backend AI Gateway sudah selesai dan berjalan normal. Endpoint /health dan server sudah berfungsi, tetapi Admin Dashboard masih belum selesai. Fokus hanya menyelesaikan Admin Dashboard, jangan mengubah arsitektur gateway, provider manager, request executor, retry, fallback, routing, auth, metrics, rate limiting, ataupun fitur backend yang sudah selesai.

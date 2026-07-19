@@ -14,6 +14,191 @@
 
 # 
 ```
+Sprint 9 – Multi Provider Gateway Architecture
+
+Do NOT rewrite the existing architecture.
+
+Preserve all completed features including:
+- OpenAI-compatible APIs
+- Provider Adapter architecture
+- Model Registry
+- Retry
+- Fallback
+- Streaming
+- Metrics
+- Admin Dashboard
+- Tests
+
+The next milestone is implementing a production-grade Multi Provider Gateway.
+
+Requirements:
+
+1. Multiple Providers
+Each provider can be enabled or disabled independently.
+
+Example:
+- OpenAI
+- OpenRouter
+- Anthropic
+- Gemini
+- DeepSeek
+- NVIDIA
+- Databricks
+- Any future OpenAI-compatible provider
+
+2. Multiple API Keys per Provider
+
+Each provider must support unlimited API keys.
+
+Example:
+
+OpenRouter
+- Key 1
+- Key 2
+- Key 3
+
+DeepSeek
+- Key 1
+- Key 2
+
+Gemini
+- Key 1
+- Key 2
+- Key 3
+- Key 4
+
+3. API Key Rotation
+
+Support:
+- Priority
+- Round Robin
+- Random
+- Least Used
+- Weighted
+
+4. Automatic API Key Failover
+
+If a key returns:
+- 401
+- 403
+- 429
+- quota exceeded
+- rate limited
+- timeout
+- connection error
+- upstream unavailable
+
+Automatically switch to the next healthy API key without failing the client request.
+
+5. Automatic Provider Failover
+
+If every API key of a provider fails, automatically switch to the next provider.
+
+6. IMPORTANT
+
+Provider failover is ONLY allowed if the next provider supports the SAME requested model.
+
+Never silently replace the requested model with another model.
+
+Example:
+
+Client requests:
+model = gpt-5
+
+Gateway may only fail over to providers that also support gpt-5.
+
+If no provider supports the requested model, return an appropriate OpenAI-compatible error.
+
+7. Smart Routing
+
+Support routing modes:
+
+- Priority
+- Fastest Response
+- Lowest Latency
+- Round Robin
+- Least Used
+- Weighted
+- Random
+
+Routing strategy must be configurable.
+
+8. Health Monitoring
+
+Track health for every:
+
+- Provider
+- API Key
+
+Store:
+
+- latency
+- success rate
+- error rate
+- last success
+- last failure
+- cooldown status
+- request count
+- token usage
+
+9. Cooldown
+
+Failed API keys should enter cooldown.
+
+Cooldown duration must be configurable.
+
+Healthy keys should automatically rejoin rotation after cooldown.
+
+10. Admin Dashboard
+
+Add full management UI for:
+
+Providers
+API Keys
+Routing Strategy
+Health Status
+Latency
+Success Rate
+Cooldown
+Priority
+Weights
+Usage
+Model Support
+
+11. Configuration
+
+Support hot reload.
+
+No restart required after changing:
+
+- Providers
+- API Keys
+- Routing
+- Priorities
+
+12. Backward Compatibility
+
+Existing OpenAI-compatible clients such as Codex CLI, Aider, Continue, Roo Code, Cline, OpenCode, Open WebUI, and other OpenAI-compatible tools must continue to work without any configuration changes.
+
+13. Testing
+
+Implement comprehensive unit, integration, and failover tests covering:
+
+- API key rotation
+- Provider failover
+- Smart routing
+- Model-aware failover
+- Health monitoring
+- Cooldown
+- Dashboard integration
+
+Implement this incrementally without breaking the existing architecture. At the end, provide a summary of all new modules, APIs, database/config changes, and tests added.
+```
+
+
+
+# 
+```
 Act as a senior Staff Software Engineer and AI Gateway architect.
 
 First, DO NOT implement any new feature.
